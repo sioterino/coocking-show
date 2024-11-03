@@ -6,44 +6,10 @@ pyautogui.PAUSE = 2.5
 pyautogui.FAILSAFE = True
 
 # emails !!!
-emails = [
-    "logan.shadowknight12@gmail.com", "mia.cyberwolf34@gmail.com", "jack.pixelrider56@gmail.com",
-    "chloe.dragonborn78@gmail.com", "liam.mysticfox90@gmail.com", "ava.gamerx01@gmail.com",
-    "ben.shadowhunter23@gmail.com", "olivia.pixelwizard45@gmail.com", "lucas.cyberknight67@gmail.com",
-    "ethan.starlight89@gmail.com", "emma.ninja12@gmail.com", "zoe.dragonheart34@gmail.com",
-    "james.arcadeking56@gmail.com", "sophia.cybersamurai78@gmail.com", "noah.moonlight90@gmail.com",
-    "lily.gamerfox01@gmail.com", "jack.shadowknight23@gmail.com", "amelia.pixelrider45@gmail.com",
-    "logan.cyberwolf67@gmail.com", "grace.dragonborn89@gmail.com", "liam.mysticfox12@gmail.com",
-    "mia.gamerx34@gmail.com", "nathan.shadowhunter56@gmail.com", "olivia.pixelwizard78@gmail.com",
-    "ethan.cyberknight90@gmail.com", "zoe.starlight01@gmail.com", "lucas.ninja23@gmail.com",
-    "emma.dragonheart45@gmail.com", "logan.arcadeking67@gmail.com", "chloe.cybersamurai89@gmail.com",
-    "ben.moonlight12@gmail.com", "amelia.gamerfox34@gmail.com", "james.shadowknight56@gmail.com",
-    "sophia.pixelrider78@gmail.com", "jack.cyberwolf90@gmail.com", "lily.dragonborn01@gmail.com",
-    "noah.mysticfox23@gmail.com", "logan.gamerx45@gmail.com", "mia.shadowhunter67@gmail.com",
-    "liam.pixelwizard89@gmail.com", "grace.cyberknight12@gmail.com", "ethan.starlight34@gmail.com",
-    "zoe.ninja56@gmail.com", "lucas.dragonheart78@gmail.com", "ben.arcadeking90@gmail.com",
-    "chloe.cybersamurai01@gmail.com", "amelia.moonlight23@gmail.com", "dylan.shadowrider234@gmail.com"
-    "lily.gamerx123@gmail.com", "logan.shadowhunter567@gmail.com", "ava.pixelmage890@gmail.com",
-    "noah.dragonheart456@gmail.com", "mia.cyberwolf321@gmail.com", "james.nightslayer789@gmail.com",
-    "zoe.firestorm234@gmail.com", "liam.arcadeking098@gmail.com", "sophia.pixelrider567@gmail.com",
-    "emma.shadowknight432@gmail.com", "lucas.darkshadow654@gmail.com", "chloe.mysticflame987@gmail.com",
-    "ben.pixelwizard213@gmail.com", "olivia.blaze123@gmail.com", "ethan.cyberwolf789@gmail.com",
-    "grace.moonlightfox432@gmail.com", "jack.pixelwarrior098@gmail.com", "amelia.starlight567@gmail.com",
-    "nathan.ninja890@gmail.com", "lily.shadowhunter234@gmail.com", "joshua.arcadequeen456@gmail.com",
-    "hannah.cybersamurai789@gmail.com", "mason.warlock567@gmail.com", "ella.zeldafan123@gmail.com",
-    "william.phantom456@gmail.com", "ava.dragonborn890@gmail.com", "logan.ninja567@gmail.com",
-    "mia.stormchaser234@gmail.com", "daniel.darkphoenix789@gmail.com", "sophia.pixelwizard098@gmail.com",
-    "nathan.gamerx123@gmail.com", "lily.cyberknight567@gmail.com", "oliver.mysticwolf890@gmail.com",
-    "grace.shadowhunter234@gmail.com", "ethan.arcadeking456@gmail.com", "harper.pixelwarrior789@gmail.com",
-    "zoe.dragonmaster123@gmail.com", "james.nightslayer456@gmail.com", "emma.firestorm789@gmail.com",
-    "lucas.cyberwolf567@gmail.com", "ava.shadowknight098@gmail.com", "noah.pixelrider234@gmail.com",
-    "amelia.dragonheart789@gmail.com", "jack.moonlight567@gmail.com", "chloe.cybersamurai890@gmail.com",
-    "ben.arcadehero123@gmail.com", "olivia.stormborn456@gmail.com", "logan.gamerfox789@gmail.com",
-    "sarah.mysticflame123@gmail.com", "lucas.dragonheart789@gmail.com", "ben.arcadeking234@gmail.com",
-    "chloe.cybersamurai567@gmail.com", "amelia.moonlight123@gmail.com"
-]
+
 
 number: int = 0
+cycle_range: int = len(emails)
 
 # alert for debugging purposes
 def alert(seconds: int):
@@ -135,25 +101,48 @@ def vote_kpop():
     vote(1265, 621)
 
 
-# static public void main
-if __name__ == '__main__':
-
+# starts browser
+def start_broser(security_time: int):
     set_conditions()
     # sets up browser
     open_chrome()
     sleep(1)
     open_ema()
-    sleep(23)
+    sleep(security_time)
 
-    # votes for every email
-    while number < len(emails):
-        print(f"vote cycle: {number}")
-        log_out()
-        sleep(2)
-        vote_best_new()
-        vote_push()
-        sleep(1)
-        vote_kpop()
+
+# user votes
+def user_votes(number: int):
+    print(f"vote cycle: {number}")
+    log_out()
+    sleep(2)
+    vote_best_new()
+    vote_push()
+    sleep(1)
+    vote_kpop()
+
+
+# static public void main
+if __name__ == '__main__':
+
+    # is it okay to start?
+    alert(seconds=0)
+
+    # iterates through all the emails
+    while number < cycle_range:
+        if number % 25 != 0:
+        # if it is not 1/4, you vote
+            user_votes(number=number)
+        else:
+        # if it is a quarter you open
+            if number != 0:
+                close_chrome()
+                print(f"close chrome: {number}")
+            start_broser(security_time=23)
+            user_votes(number=number)
+        # last, increment by one
         number = number + 1
 
+    # ends voting
     close_chrome()
+    alert(seconds=0)
