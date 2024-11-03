@@ -1,6 +1,7 @@
+import pyautogui
 
 
-test = [
+emails_300 = [
     "Alexei.Aurora53728@gmail.com", "Alexei.Beetlejuice16320@gmail.com", "Alexei.Cupid78759@yahoo.com", "Alexei.Daemon22184@hotmail.com", "Alexei.Kraken1380@naver.com", "Alexei.Nebula70761@gmail.com",
     "Amina.Artemis35936@gmail.com", "Amina.Aries16019@naver.com", "Amina.Berserk14185@yahoo.com", "Amina.Cupid26311@naver.com", "Amina.Hera5498@gmail.com", "Amina.Kraken81829@hotmail.com",
     "Anya.Beetlejuice4861@yahoo.com", "Anya.Draco69579@hotmail.com", "Anya.Eclipse8654@gmail.com", "Anya.Kraken44114@gmail.com", "Anya.Merlin32027@naver.com", "Anya.Sphinx59057@yahoo.com",
@@ -53,7 +54,8 @@ test = [
     "Thiago.Beetlejuice7038@gmail.com", "Thiago.Draco2189@hotmail.com", "Thiago.Hydra43702@yahoo.com", "Thiago.Phoenix97135@gmail.com", "Thiago.Stardust6948@naver.com", "Thiago.Zeus32810@gmail.com"
 ]
 
-emails = [
+
+emails_60 = [
     "Adrian.Apollo3874@gmail.com", "Adrian.Hydra29763@naver.com", "Adrian.Mystic47058@yahoo.com", "Adrian.Titan12347@gmail.com", "Adrian.Valkyrie82409@hotmail.com", "Adrian.Zeus58312@yahoo.com",
     "Alice.Cupid10984@gmail.com", "Alice.Kraken57263@yahoo.com", "Alice.Merlin23890@naver.com", "Alice.Phoenix91634@hotmail.com", "Alice.Sphinx43902@gmail.com", "Alice.Voyager57820@yahoo.com",
     "Bernard.Apollo31097@naver.com", "Bernard.Hydra89317@gmail.com", "Bernard.Mystic14620@hotmail.com", "Bernard.Titan9243@gmail.com", "Bernard.Valkyrie50784@yahoo.com", "Bernard.Zeus63028@gmail.com",
@@ -66,6 +68,47 @@ emails = [
     "Mira.Aries18436@gmail.com", "Mira.Daemon24791@naver.com", "Mira.Hydra69853@yahoo.com", "Mira.Mystic10387@gmail.com", "Mira.Polaris48509@hotmail.com", "Mira.Zeus76534@gmail.com"
 ]
 
-number: int = 23
-cycle_range: int = 26
 
+emails_36 = [
+    "aaron.pixelwizard342@gmail.com", "emma.shadowknight564@gmail.com", "noah.arcadehero129@gmail.com",
+    "mia.cybermage784@gmail.com", "james.starlight562@gmail.com", "sophia.dragonflame230@gmail.com",
+    "zoe.nightslayer892@gmail.com", "jack.pixelmaster456@gmail.com", "lily.mysticfox621@gmail.com",
+    "logan.dragonheart135@gmail.com", "chloe.cyberwolf249@gmail.com", "liam.shadowhunter478@gmail.com",
+    "ethan.gamerwizard953@gmail.com", "emma.ninjafox315@gmail.com", "ben.stormbringer168@gmail.com",
+    "ava.pixelrider542@gmail.com", "lucas.moonlight378@gmail.com", "grace.arcadeking490@gmail.com",
+    "harper.cybersorcerer741@gmail.com", "sophia.dragonlord236@gmail.com", "will.shadowmage253@gmail.com",
+    "amelia.gamerfox198@gmail.com", "nathan.nightblade314@gmail.com", "zoe.cyberninja267@gmail.com",
+    "logan.firestorm521@gmail.com", "mia.mysticrider672@gmail.com", "ethan.pixelknight730@gmail.com",
+    "grace.dragonfire143@gmail.com", "liam.nightprowler684@gmail.com", "chloe.cyberfox981@gmail.com",
+    "emma.pixelwizard429@gmail.com", "joshua.gamerlord675@gmail.com", "amelia.shadowblade298@gmail.com",
+    "noah.arcademaster453@gmail.com", "mia.moonlight269@gmail.com", "olivia.nightsorcerer781@gmail.com"
+]
+
+
+pyautogui.PAUSE = 0.3
+pyautogui.FAILSAFE = True
+
+number: int = 0
+
+
+def open_opera():
+    pyautogui.hotkey('alt', 'tab')
+
+
+def email(cycle: int, mails):
+    choice = mails[cycle]
+    return choice
+
+
+def write_in():
+    user = email(number, emails_36)
+    pyautogui.press('enter')
+    pyautogui.write(user)
+    pyautogui.press('enter')
+
+
+if __name__ == '__main__':
+    open_opera()
+    while number < len(emails_36):
+        write_in()
+        number += 1
