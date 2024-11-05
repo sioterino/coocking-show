@@ -1,3 +1,4 @@
+import datetime
 import pyautogui
 import time
 
@@ -6,7 +7,8 @@ pyautogui.PAUSE = 2.5
 pyautogui.FAILSAFE = True
 
 # emails !!!
-emails = [
+# 00:24 >> 5:32
+emails_300 = [
     "Alexei.Aurora53728@gmail.com", "Alexei.Beetlejuice16320@gmail.com", "Alexei.Cupid78759@yahoo.com", "Alexei.Daemon22184@hotmail.com", "Alexei.Kraken1380@naver.com", "Alexei.Nebula70761@gmail.com",
     "Amina.Artemis35936@gmail.com", "Amina.Aries16019@naver.com", "Amina.Berserk14185@yahoo.com", "Amina.Cupid26311@naver.com", "Amina.Hera5498@gmail.com", "Amina.Kraken81829@hotmail.com",
     "Anya.Beetlejuice4861@yahoo.com", "Anya.Draco69579@hotmail.com", "Anya.Eclipse8654@gmail.com", "Anya.Kraken44114@gmail.com", "Anya.Merlin32027@naver.com", "Anya.Sphinx59057@yahoo.com",
@@ -57,6 +59,38 @@ emails = [
     "Rafael.Beetlejuice31049@gmail.com", "Rafael.Draco48760@naver.com", "Rafael.Hydra26987@yahoo.com", "Rafael.Polaris6134@gmail.com", "Rafael.Titan89764@hotmail.com", "Rafael.Zeus5301@gmail.com",
     "Sofia.Aries46729@gmail.com", "Sofia.Cupid10576@naver.com", "Sofia.Hydra86093@gmail.com", "Sofia.Ragnarok4927@yahoo.com", "Sofia.Sphinx30786@gmail.com", "Sofia.Valkyrie58904@hotmail.com",
     "Thiago.Beetlejuice7038@gmail.com", "Thiago.Draco2189@hotmail.com", "Thiago.Hydra43702@yahoo.com", "Thiago.Phoenix97135@gmail.com", "Thiago.Stardust6948@naver.com", "Thiago.Zeus32810@gmail.com"
+]
+
+
+# 07:07 >> 08:08
+emails = [
+    "Adrian.Apollo3874@gmail.com", "Adrian.Hydra29763@naver.com", "Adrian.Mystic47058@yahoo.com", "Adrian.Titan12347@gmail.com", "Adrian.Valkyrie82409@hotmail.com", "Adrian.Zeus58312@yahoo.com",
+    "Alice.Cupid10984@gmail.com", "Alice.Kraken57263@yahoo.com", "Alice.Merlin23890@naver.com", "Alice.Phoenix91634@hotmail.com", "Alice.Sphinx43902@gmail.com", "Alice.Voyager57820@yahoo.com",
+    "Bernard.Apollo31097@naver.com", "Bernard.Hydra89317@gmail.com", "Bernard.Mystic14620@hotmail.com", "Bernard.Titan9243@gmail.com", "Bernard.Valkyrie50784@yahoo.com", "Bernard.Zeus63028@gmail.com",
+    "Camila.Aries45803@gmail.com", "Camila.Cupid7316@yahoo.com", "Camila.Hydra26048@hotmail.com", "Camila.Mystic94570@naver.com", "Camila.Polaris3629@gmail.com", "Camila.Sphinx80327@gmail.com",
+    "Darius.Beetlejuice3287@hotmail.com", "Darius.Cupid50198@gmail.com", "Darius.Mystic74903@naver.com", "Darius.Polaris15942@yahoo.com", "Darius.Stardust93047@gmail.com", "Darius.Zeus82076@gmail.com",
+    "Elsa.Apollo7352@gmail.com", "Elsa.Cupid12839@naver.com", "Elsa.Mystic59084@yahoo.com", "Elsa.Phoenix40231@gmail.com", "Elsa.Sphinx28714@hotmail.com", "Elsa.Valkyrie90326@gmail.com",
+    "Finn.Aries1489@hotmail.com", "Finn.Cupid68437@gmail.com", "Finn.Daemon27963@yahoo.com", "Finn.Phoenix10384@gmail.com", "Finn.Stardust32847@naver.com", "Finn.Voyager57106@gmail.com",
+    "Hana.Apollo59123@yahoo.com", "Hana.Cupid67458@gmail.com", "Hana.Mystic73809@naver.com", "Hana.Phoenix43691@hotmail.com", "Hana.Sphinx20573@gmail.com", "Hana.Titan31864@gmail.com",
+    "Isaac.Artemis20457@gmail.com", "Isaac.Hydra59372@yahoo.com", "Isaac.Kraken10846@gmail.com", "Isaac.Polaris76034@hotmail.com", "Isaac.Sphinx18347@naver.com", "Isaac.Zeus49358@gmail.com",
+    "Mira.Aries18436@gmail.com", "Mira.Daemon24791@naver.com", "Mira.Hydra69853@yahoo.com", "Mira.Mystic10387@gmail.com", "Mira.Polaris48509@hotmail.com", "Mira.Zeus76534@gmail.com"
+]
+
+
+# 07:07 >> 08:08
+emails_36 = [
+    "aaron.pixelwizard342@gmail.com", "emma.shadowknight564@gmail.com", "noah.arcadehero129@gmail.com",
+    "mia.cybermage784@gmail.com", "james.starlight562@gmail.com", "sophia.dragonflame230@gmail.com",
+    "zoe.nightslayer892@gmail.com", "jack.pixelmaster456@gmail.com", "lily.mysticfox621@gmail.com",
+    "logan.dragonheart135@gmail.com", "chloe.cyberwolf249@gmail.com", "liam.shadowhunter478@gmail.com",
+    "ethan.gamerwizard953@gmail.com", "emma.ninjafox315@gmail.com", "ben.stormbringer168@gmail.com",
+    "ava.pixelrider542@gmail.com", "lucas.moonlight378@gmail.com", "grace.arcadeking490@gmail.com",
+    "harper.cybersorcerer741@gmail.com", "sophia.dragonlord236@gmail.com", "will.shadowmage253@gmail.com",
+    "amelia.gamerfox198@gmail.com", "nathan.nightblade314@gmail.com", "zoe.cyberninja267@gmail.com",
+    "logan.firestorm521@gmail.com", "mia.mysticrider672@gmail.com", "ethan.pixelknight730@gmail.com",
+    "grace.dragonfire143@gmail.com", "liam.nightprowler684@gmail.com", "chloe.cyberfox981@gmail.com",
+    "emma.pixelwizard429@gmail.com", "joshua.gamerlord675@gmail.com", "amelia.shadowblade298@gmail.com",
+    "noah.arcademaster453@gmail.com", "mia.moonlight269@gmail.com", "olivia.nightsorcerer781@gmail.com"
 ]
 
 number: int = 0
@@ -119,7 +153,8 @@ def log_in():
 # decides user email
 def email(cycle: int, mails):
     choice = mails[cycle]
-    print(f"user voting: {choice}")
+    time: str = datetime.datetime.now().strftime('%m/%d %H:%M:%S')
+    print(f"user voting: {choice} TIME: {time}")
     return choice
 
 
@@ -175,9 +210,9 @@ def user_votes(number: int):
 
 # static public void main
 if __name__ == '__main__':
-
     # is it okay to start?
     alert(seconds=0)
+
 
     # iterates through all the emails
     while number < cycle_range:
