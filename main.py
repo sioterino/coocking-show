@@ -63,7 +63,7 @@ emails_300 = [
 
 
 # 07:07 >> 08:08
-emails = [
+emails_60 = [
     "Adrian.Apollo3874@gmail.com", "Adrian.Hydra29763@naver.com", "Adrian.Mystic47058@yahoo.com", "Adrian.Titan12347@gmail.com", "Adrian.Valkyrie82409@hotmail.com", "Adrian.Zeus58312@yahoo.com",
     "Alice.Cupid10984@gmail.com", "Alice.Kraken57263@yahoo.com", "Alice.Merlin23890@naver.com", "Alice.Phoenix91634@hotmail.com", "Alice.Sphinx43902@gmail.com", "Alice.Voyager57820@yahoo.com",
     "Bernard.Apollo31097@naver.com", "Bernard.Hydra89317@gmail.com", "Bernard.Mystic14620@hotmail.com", "Bernard.Titan9243@gmail.com", "Bernard.Valkyrie50784@yahoo.com", "Bernard.Zeus63028@gmail.com",
@@ -77,8 +77,8 @@ emails = [
 ]
 
 
-# 07:07 >> 08:08
-emails_36 = [
+# xx:xx >> xx:xx
+emails = [
     "aaron.pixelwizard342@gmail.com", "emma.shadowknight564@gmail.com", "noah.arcadehero129@gmail.com",
     "mia.cybermage784@gmail.com", "james.starlight562@gmail.com", "sophia.dragonflame230@gmail.com",
     "zoe.nightslayer892@gmail.com", "jack.pixelmaster456@gmail.com", "lily.mysticfox621@gmail.com",
@@ -93,7 +93,7 @@ emails_36 = [
     "noah.arcademaster453@gmail.com", "mia.moonlight269@gmail.com", "olivia.nightsorcerer781@gmail.com"
 ]
 
-number: int = 0
+number: int = 9
 cycle_range: int = len(emails)
 
 # alert for debugging purposes
@@ -213,22 +213,51 @@ if __name__ == '__main__':
     # is it okay to start?
     alert(seconds=0)
 
+    # voting starts at:
+    start: int = 1521
+    # voting ends at:
+    end: int = 1526
 
-    # iterates through all the emails
-    while number < cycle_range:
-        if number % 25 != 0:
-        # if it is not 1/4, you vote
-            user_votes(number=number)
-        else:
-        # if it is a quarter you open
-            if number != 0:
-                close_chrome()
-                print(f"close chrome: {number}")
+    while True: # WHILE 1
+        # variable now changes every 1 second
+        time.sleep(1)
+        now: int = int(datetime.datetime.now().strftime('%H%M'))
+
+        # if now is the voting start period you vote
+        if now >= start:
             start_broser(security_time=23)
-            user_votes(number=number)
-        # last, increment by one
-        number = number + 1
+            # while numbers of voters is lesser then the number of usable emails
+            while number < cycle_range: # WHILE 2
+                # if it is not 1/4, you vote
+                if number % 25 != 0:
+                    user_votes(number=number)
+                # end of IF
+                else: # if it is a quarter you open chrome
+                    if number != 0:
+                        close_chrome()
+                        print(f"close chrome: {number}")
+                    # end of IF
+                    start_broser(security_time=23)
+                    user_votes(number=number)
+                # end of ELSE
 
-    # ends voting
-    close_chrome()
-    alert(seconds=0)
+                # increment by one
+                number = number + 1
+                # end test to see if the time's up
+                now: int = int(datetime.datetime.now().strftime('%H%M'))
+                if now >= end:
+                    # if time's up, you break out of the loop
+                    break
+                # end og IF
+            # end of WHILE 2
+        # end of IF
+
+        if now >= end:
+            # if time's up, you break out of the loop
+            # ends voting
+            close_chrome()
+            alert(seconds=0)
+            break
+        # end og IF
+    # end of WHILE 1
+

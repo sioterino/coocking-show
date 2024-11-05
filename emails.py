@@ -109,7 +109,7 @@ def write_in():
 
 
 if __name__ == '__main__':
-    # open_opera()
-    # while number < len(emails_36):
-    #     write_in()
-    #     number += 1
+    open_opera()
+    while number < len(emails_36):
+        write_in()
+        number += 1
